@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: runner
-        image: untoldwind/github-deploy-runner:1
+        image: untoldwind/github-deploy-runner:2
         volumeMounts:
         - mountPath: "/runner/.env"
           subPath: ".env"
@@ -39,7 +39,13 @@ spec:
           subPath: ".runner"
           name: credentials
           readOnly: true
+        - mountPath: /tmp
+          name: tmp
       volumes:
+      - name: tmp
+        emptyDir:
+          medium: Memory
+          sizeLimit: 512Mi
       - name: credentials
         secret:
           secretName: deploy-runner-credentials

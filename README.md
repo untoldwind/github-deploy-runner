@@ -8,7 +8,7 @@ Currently requires manually adding an action runner in the settings page of a re
 Note the token presented in the commands and then do:
 
 ```
-docker run --rm untoldwind/github-deploy-runner:1 /cluster_conf.sh --url <repo-url> --token <token>
+docker run --rm untoldwind/github-deploy-runner:2 /cluster_conf.sh --work /tmp --labels dev-deploy --name dev-deploy --url <repo-url> --token <token>
 ```
 
 Output is a k8s secret that should be used to execute the runner in the k8s cluster itself.
