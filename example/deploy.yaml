@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-runner
+  labels:
+    app: deploy-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-runner
+  template:
+    metadata:
+      labels:
+        app: deploy-runner
+    spec:
+      containers:
+      - name: runner
+        image: untoldwind/github-deploy-runner:1
+        volumeMounts:
+        - mountPath: "/runner/.env"
+          subPath: ".env"
+          name: credentials
+          readOnly: true
+        - mountPath: "/runner/.path"
+          subPath: ".path"
+          name: credentials
+          readOnly: true
+        - mountPath: "/runner/.credentials"
+          subPath: ".credentials"
+          name: credentials
+          readOnly: true
+        - mountPath: "/runner/.credentials_rsaparams"
+          subPath: ".credentials_rsaparams"
+          name: credentials
+          readOnly: true
+        - mountPath: "/runner/.runner"
+          subPath: ".runner"
+          name: credentials
+          readOnly: true
+      volumes:
+      - name: credentials
+        secret:
+          secretName: deploy-runner-credentials
+

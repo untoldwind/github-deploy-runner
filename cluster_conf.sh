@@ -16,9 +16,9 @@ metadata:
   name: deploy-runner-credentials
 type: Opaque
 data:
-    .credentials: $_CREDENTIALS
-    .credentials_rsaparams: $_CREDENTIALS_RSA
-    .path: $_PATH
-    .env: $_ENV 
-    .runner: $_RUNNER
+    .credentials: "$_CREDENTIALS"
+    .credentials_rsaparams: "$_CREDENTIALS_RSA"
+    .path: "$_PATH"
+    .env: "$_ENV"
+    .runner: "$_RUNNER"
 END
