@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ARG ARCH=x64
-ARG RUNNER_VERSION=2.293.0
+ARG RUNNER_VERSION=2.294.0
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y apt-transport-https gnupg2 curl nodejs \
@@ -31,4 +31,4 @@ COPY cluster_conf.sh /
 
 USER runner
 
-CMD [ "/runner/run.sh" ]
+CMD [ "/runner/run.sh", "--disableupdate" ]
