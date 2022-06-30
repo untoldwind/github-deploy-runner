@@ -31,4 +31,4 @@ COPY cluster_conf.sh /
 
 USER runner
 
-CMD [ "/runner/run.sh", "--disableupdate" ]
+CMD [ "/runner/run.sh" ]
