@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ARG ARCH=x64
-ARG RUNNER_VERSION=2.301.1
+ARG RUNNER_VERSION=2.303.0
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y apt-transport-https gnupg2 curl nodejs \
